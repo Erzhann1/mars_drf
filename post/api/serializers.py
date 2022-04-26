@@ -11,6 +11,6 @@ class PostSerializer(serializers.ModelSerializer):
         model = Post
         fields = ['id', 'url', 'user', 'title', 'content', 'image']
 
-        def get_url(self, obj):
-            request = self.context.get('request')
-            return reverse("detail", kwargs={'id': obj.id}, request=request)
+    def get_url(self, obj):
+        request = self.context.get('request')
+        return reverse("detail", kwargs={'id': obj.id}, request=request)
